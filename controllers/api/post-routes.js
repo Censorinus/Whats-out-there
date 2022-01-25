@@ -93,7 +93,7 @@ router.post('/', withAuth, (req, res) => {
   }
 });
 
-router.put('/sharedSighting', withAuth, (req, res) => {
+router.put('/sharedsighting', withAuth, (req, res) => {
   // custom static method created in models/Post.js
   if (req.session) {
     Post.sharedSighting({ ...req.body, user_id: req.session.user_id }, { SharedSighting, Comment, User })
@@ -108,7 +108,8 @@ router.put('/sharedSighting', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
-      sighting: req.body.sighting
+      sighting: req.body.sighting,
+      description: req.body.description
     },
     {
       where: {

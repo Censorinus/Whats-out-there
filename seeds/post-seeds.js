@@ -2,104 +2,105 @@ const { Post } = require('../models');
 
 const postdata = [
   {
-    title: 'Donec posuere metus vitae ipsum.',
-    post_url: 'https://buzzfeed.com/in/imperdiet/et/commodo/vulputate.png',
+    sighting: 'Donec posuere metus vitae ipsum.',
+    description: 'Content - Donec posuere metus vitae ipsum.',
     user_id: 10
   },
   {
-    title: 'Morbi non quam nec dui luctus rutrum.',
-    post_url: 'https://nasa.gov/donec.json',
+    sighting: 'Morbi non quam nec dui luctus rutrum.',
+    description: 'Content - Morbi non quam nec dui luctus rutrum.',
     user_id: 8
   },
   {
-    title: 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.',
-    post_url: 'https://europa.eu/parturient/montes/nascetur/ridiculus/mus/etiam/vel.aspx',
+    sighting: 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.',
+    description: 'Content - Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.',
     user_id: 1
   },
   {
-    title: 'Nunc purus.',
-    post_url: 'http://desdev.cn/enim/blandit/mi.jpg',
+    sighting: 'Nunc purus.',
+    description: 'Content - Nunc purus.',
     user_id: 4
   },
   {
-    title: 'Pellentesque eget nunc.',
-    post_url: 'http://google.ca/nam/nulla/integer.aspx',
+    sighting: 'Pellentesque eget nunc.',
+    description: 'Content - Pellentesque eget nunc.',
     user_id: 7
   },
   {
-    title: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-    post_url: 'https://stanford.edu/consequat.png',
+    sighting: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+    description: 'Content - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
     user_id: 4
   },
   {
-    title: 'In hac habitasse platea dictumst.',
-    post_url: 'http://edublogs.org/non/ligula/pellentesque.js',
+    sighting: 'In hac habitasse platea dictumst.',
+    description: 'Content - In hac habitasse platea dictumst.',
     user_id: 1
   },
   {
-    title: 'Morbi non quam nec dui luctus rutrum.',
-    post_url: 'http://ucla.edu/consequat/nulla.html',
+    sighting: 'Morbi non quam nec dui luctus rutrum.',
+    description: 'Content - Morbi non quam nec dui luctus rutrum.',
     user_id: 1
   },
   {
-    title: 'Duis ac nibh.',
-    post_url: 'http://theguardian.com/dui/vel/nisl/duis/ac/nibh.aspx',
+    sighting: 'Duis ac nibh.',
+    description: 'Content - Duis ac nibh.',
     user_id: 9
   },
   {
-    title: 'Curabitur at ipsum ac tellus semper interdum.',
-    post_url: 'https://reverbnation.com/ligula/sit.jpg',
+    sighting: 'Curabitur at ipsum ac tellus semper interdum.',
+    description: 'Content - Curabitur at ipsum ac tellus semper interdum.',
     user_id: 5
   },
   {
-    title: 'In hac habitasse platea dictumst.',
-    post_url: 'http://china.com.cn/lectus/vestibulum.json',
+    sighting: 'In hac habitasse platea dictumst.',
+    description: 'Content - In hac habitasse platea dictumst.',
     user_id: 3
   },
   {
-    title: 'Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.',
-    post_url: 'http://networksolutions.com/nam/ultrices/libero/non/mattis/pulvinar.json',
+    sighting: 'Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.',
+    description: 'Content - Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.',
     user_id: 10
   },
   {
-    title: 'Donec dapibus.',
-    post_url: 'https://instagram.com/ac/neque/duis/bibendum/morbi/non.xml',
+    sighting: 'Donec dapibus.',
+    description: 'Content - Donec dapibus.',
     user_id: 8
   },
   {
-    title: 'Nulla tellus.',
-    post_url: 'https://lycos.com/natoque/penatibus/et.html',
+    sighting: 'Nulla tellus.',
+    description: 'Content - Nulla tellus.',
     user_id: 3
   },
   {
-    title: 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.',
-    post_url: 'https://gmpg.org/lorem.jpg',
+    sighting: 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.',
+    description: 'Content - Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.',
     user_id: 3
   },
   {
-    title:
+    sighting:
       'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.',
-    post_url: 'https://paginegialle.it/mattis/egestas.jsp',
+    description:
+      'Content - Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.',
     user_id: 7
   },
   {
-    title: 'In hac habitasse platea dictumst.',
-    post_url: 'http://wikia.com/turpis/eget.jpg',
+    sighting: 'In hac habitasse platea dictumst.',
+    description: 'Content - In hac habitasse platea dictumst.',
     user_id: 6
   },
   {
-    title: 'Etiam justo.',
-    post_url: 'https://shareasale.com/quis.json',
+    sighting: 'Etiam justo.',
+    description: 'Content - Etiam justo.',
     user_id: 4
   },
   {
-    title: 'Nulla ut erat id mauris vulputate elementum.',
-    post_url: 'http://java.com/diam/neque/vestibulum/eget/vulputate/ut/ultrices.png',
+    sighting: 'Nulla ut erat id mauris vulputate elementum.',
+    description: 'Content - Nulla ut erat id mauris vulputate elementum.',
     user_id: 6
   },
   {
-    title: 'Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.',
-    post_url: 'https://java.com/at/nibh/in.png',
+    sighting: 'Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.',
+    description: 'Content - Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.',
     user_id: 7
   }
 ];

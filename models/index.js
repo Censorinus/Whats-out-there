@@ -16,25 +16,24 @@ Post.belongsTo(User, {
 
 User.belongsToMany(Post, {
   through: SharedSighting,
-  as: 'sharedSighting',
-
+  as: 'shared_sighting',
   foreignKey: 'user_id',
   onDelete: 'SET NULL'
 });
 
 Post.belongsToMany(User, {
   through: SharedSighting,
-  as: 'sharedSighting',
+  as: 'shared_sighting',
   foreignKey: 'post_id',
   onDelete: 'SET NULL'
 });
 
-Vote.belongsTo(User, {
+SharedSighting.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'SET NULL'
 });
 
-Vote.belongsTo(Post, {
+SharedSighting.belongsTo(Post, {
   foreignKey: 'post_id',
   onDelete: 'SET NULL'
 });

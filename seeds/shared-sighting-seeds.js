@@ -1,6 +1,6 @@
-const { Vote } = require('../models');
+const { SharedSighting } = require('../models');
 
-const votedata = [
+const sharedsightingdata = [
   {
     user_id: 9,
     post_id: 19
@@ -191,6 +191,6 @@ const votedata = [
   }
 ];
 
-const seedVotes = () => Vote.bulkCreate(votedata);
+const seedSharedSightingData = () => SharedSighting.bulkCreate(sharedsightingdata);
 
-module.exports = seedVotes;
+module.exports = seedSharedSightingData;

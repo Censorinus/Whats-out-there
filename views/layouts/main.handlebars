@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Just Tech News</title>
+  <title>What's out there?</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
@@ -12,22 +12,23 @@
   <div class="wrapper">
     <header>
       <h1>
-        <a href="/">Just Tech News</a>
+        <a href="/">Home</a>
       </h1>
+      <a href="/dashboard">Dashboard</a>
       <nav>
         {{#if loggedIn}}
-        <a href="/dashboard">dashboard</a>
-        <button id="logout" class="btn-no-style">logout</button>
+        <button id="logout" class="btn-no-style">Logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login">Login</a>
         {{/if}}
       </nav>
     </header>
+    <h1>What's out there?</h1>
     <main>
       {{{ body }}}
     </main>
     <footer>
-      Thanks for visiting!
+      Stay On Watch
     </footer>
   </div>
 

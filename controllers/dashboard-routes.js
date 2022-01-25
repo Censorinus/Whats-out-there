@@ -52,7 +52,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
       'sighting',
       'description',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = sharedSighting.post_id)'), 'sharedSighting']
+      [sequelize.literal('(SELECT COUNT(*) FROM sharedSighting WHERE post.id = sharedSighting.post_id)'), 'sharedSighting']
     ],
     include: [
       {

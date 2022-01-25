@@ -2,7 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment, SharedSighting } = require('../models');
 
-// get all posts for homepage
+// get all blogs for homepage
 router.get('/', (req, res) => {
   console.log('======================');
   Post.findAll({
@@ -30,7 +30,6 @@ router.get('/', (req, res) => {
   })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
-
       res.render('homepage', {
         posts,
         loggedIn: req.session.loggedIn
@@ -96,6 +95,10 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+router.get('/signup', (req, res) => {
+  res.render('signup');
 });
 
 module.exports = router;

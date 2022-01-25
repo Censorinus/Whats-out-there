@@ -1,27 +1,30 @@
 <section>
-  <h2>Create New Post</h2>
+  <h2>Post a New Sighting</h2>
 
   <form class="new-post-form">
     <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
+      <label for="post-sighting">Sighting</label>
+      <textarea name="post-sighting" id="post-sighting"></textarea>
     </div>
     <div>
-      <label for="post-url">Link</label>
-      <input id="post-url" name="post-url" />
+      <label for="post-description">Description</label>
+      <textarea name="post-description" id="post-description"></textarea>
     </div>
     <button type="submit" class="btn">Create</button>
   </form>
 </section>
 {{#if posts.length}}
 <section>
-  <h2>Your Posts</h2>
+  <h2>Your Sightings</h2>
   <ol>
     {{#each posts as |post|}}
     <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+      <div class="meta">
+        {{> post-info post}}
+        <a href="/dashboard/edit/{{post.id}}" class="edit-post">Edit Sighting</a>
+      </div>
     </li>
+    <br>
     {{/each}}
   </ol>
 </section>

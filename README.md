@@ -2,7 +2,7 @@
 
 ## Description
 
-A UFO Sighting Blog
+A UFO Sighting Blog that allows users to view and research sightings, vote for sightings, and make comments.
 
 ![screenshot](./images/screenshot.png)
 

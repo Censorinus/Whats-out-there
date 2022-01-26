@@ -1,6 +1,9 @@
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 const { User, Post, Comment, SharedSighting } = require('../../models');
 const withAuth = require('../../middleware/auth');
+const fs = require('fs').promises;
+const parse = require('csv-parse/lib/sync');
 
 // get all users
 router.get('/', (req, res) => {
@@ -56,11 +59,16 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // expects {username: 'Lernantino', password: 'password1234'}
-  User.create({
+User.create({
     username: req.body.username,
-    password: req.body.password
+    password: req.body.password,
+    count: sequelize.literal(`(SELECT COUNT(*) FROM user WHERE user.username= ${req.body.username})`)
   })
     .then(dbUserData => {
+      if (dbUserData.count > 0) {
+        res.status(404).json({ message: 'User already exists!' });
+        return;
+      }
       req.session.save(() => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
@@ -81,7 +89,7 @@ router.post('/login', (req, res) => {
     where: {
       username: req.body.username
     }
-  }).then(dbUserData => {
+  }).then(async dbUserData => {
     if (!dbUserData) {
       res.status(400).json({ message: 'No user with that username!' });
       return;
@@ -101,6 +109,15 @@ router.post('/login', (req, res) => {
 
       res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
+
+    if (req.body.username === 'anonymous') {
+      const fileContent = await fs.readFile(__dirname + '/input/sightings.csv');
+      const records = parse(fileContent, { columns: true });
+      console.log(records)
+      // move the input file to the archive folder.
+    } else {
+      console.log(`THIS USER: "${req.body.username}" IS NOT ALLOWED LOAD ANONYMOUS DATA`)
+    }
   });
 });
 

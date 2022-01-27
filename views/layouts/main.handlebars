@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>What's out there?</title>
+  <title>What's Out There?</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
@@ -21,23 +22,50 @@
       <!-- Logo End -->
     </header>
     <!-- Header End -->
+
+
+    <!-- Navigation Start -->
+      <nav class="navbar is-link" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+      
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a href="/" class="navbar-item">
+        Home
+      </a>
+
+      <a href="/dashboard" class="navbar-item">
+        Dashboard
+      </a>
+
+      
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+       {{#if loggedIn}}
+          <a class="button is-warning" id="logout"><strong>Logout</strong></a>
+          {{else}}
+          <a class="button-is-warning" href="/login">Login</a>
+          {{/if}} 
+      </div>
+    </div>
+  </div>
+</nav>
+      <!-- Navigation End -->
+
     
     <!-- Main Start -->
     <main>
-      <!-- Navigation Start -->
-      <div class="navigation">
-          <a href="/">Home</a>
-          <a href="/dashboard">Dashboard</a>
-        <nav>
-          {{#if loggedIn}}
-          <button id="logout" class="btn-no-style">Logout</button>
-          {{else}}
-          <a href="/login">Login</a>
-          {{/if}}
-        </nav>
-      </div>
-      <!-- Navigation End -->
-
+      
       {{{ body }}}
     </main>
     <!-- Main End -->

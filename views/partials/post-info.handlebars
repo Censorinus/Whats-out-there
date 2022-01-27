@@ -1,13 +1,16 @@
 <article class="post">
   <div class="sighting">
+    
     <a href="/post/{{id}}">{{sighting}}</a>
-    <span id="signature">({{user.username}} on {{format_date created_at}})</span>
+    
+    <span id="signature" class="post-username">({{user.username}} on {{format_date created_at}})</span>
     <br>
-    <span>{{description}}</span>
+    <span class="post-desc">{{description}}</span>
   </div>
   <div class="meta">
     {{sharedSighting}} {{format_plural "shared sighting" sharedSighting}} 
     |
     <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    
   </div>
 </article>

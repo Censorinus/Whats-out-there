@@ -23,56 +23,50 @@
     </header>
     <!-- Header End -->
 
-
     <!-- Navigation Start -->
-      <nav class="navbar is-link" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-link" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-      
-
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a href="/" class="navbar-item">
-        Home
-      </a>
-
-      <a href="/dashboard" class="navbar-item">
-        Dashboard
-      </a>
-
-      
-    </div>
-
-    <div class="navbar-end">
-      <div class="navbar-item">
-       {{#if loggedIn}}
-          <a class="button is-warning" id="logout"><strong>Logout</strong></a>
-          {{else}}
-          <a class="button-is-warning" href="/login">Login</a>
-          {{/if}} 
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
       </div>
-    </div>
-  </div>
-</nav>
-      <!-- Navigation End -->
 
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a href="/" class="navbar-item">
+            Home
+          </a>
+          <a href="/dashboard" class="navbar-item">
+            Dashboard
+          </a>
+      </div>
+
+      <div class="navbar-end">
+          <div class="navbar-item">
+          {{#if loggedIn}}
+            <a class="button is-warning" id="logout"><strong>Logout</strong></a>
+            {{else}}
+            <a href="/login">
+            Login
+            </a>
+            {{/if}} 
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navigation End -->
     
     <!-- Main Start -->
     <main>
-      
       {{{ body }}}
     </main>
     <!-- Main End -->
 
     <!-- Footer Start -->
     <footer>
-      Stay On Watch - Eyes to the Sky!<br/>
+      <h2>Stay On Watch - Eyes to the Sky!</h2>
       <h2>&copy 2022 What's Out There</h2>
     </footer>
     <!-- Footer End -->

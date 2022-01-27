@@ -55,13 +55,13 @@ header {
 
 a {
   text-decoration: none;
-  color: #225ca3;
+  color: var(--white);
   font-weight: bold;
   transition: color .1s;
 }
 
 a:hover {
-  color: #3486eb;
+  color: var(--white);
 }
 
 button {

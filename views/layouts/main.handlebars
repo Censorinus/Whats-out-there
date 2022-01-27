@@ -9,28 +9,47 @@
 </head>
 
 <body>
+  <!-- Wrapper Start -->
   <div class="wrapper">
+
+    <!-- Header Start -->
     <header>
-      <h1>
-        <a href="/">Home</a>
-      </h1>
-      <a href="/dashboard">Dashboard</a>
-      <nav>
-        {{#if loggedIn}}
-        <button id="logout" class="btn-no-style">Logout</button>
-        {{else}}
-        <a href="/login">Login</a>
-        {{/if}}
-      </nav>
+      <!-- Logo Start -->
+      <div class="logo">
+          <h1>What's Out There?</h1>
+      </div>
+      <!-- Logo End -->
     </header>
-    <h1>What's out there?</h1>
+    <!-- Header End -->
+    
+    <!-- Main Start -->
     <main>
+      <!-- Navigation Start -->
+      <div class="navigation">
+          <a href="/">Home</a>
+          <a href="/dashboard">Dashboard</a>
+        <nav>
+          {{#if loggedIn}}
+          <button id="logout" class="btn-no-style">Logout</button>
+          {{else}}
+          <a href="/login">Login</a>
+          {{/if}}
+        </nav>
+      </div>
+      <!-- Navigation End -->
+
       {{{ body }}}
     </main>
+    <!-- Main End -->
+
+    <!-- Footer Start -->
     <footer>
-      Stay On Watch
+      Stay On Watch - Eyes to the Sky!
     </footer>
+    <!-- Footer End -->
+
   </div>
+  <!-- Wrapper End -->
 
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>

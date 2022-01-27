@@ -2,6 +2,7 @@
 :root {
   --white: #ffffff;
   --darkblue: #1e2d3f;
+  --blue: #324c6b;
   
 }
 
@@ -224,4 +225,27 @@ footer {
   justify-content: center;
   padding: 1%;
   font-size: 110%;
+}
+
+.post-section {
+  
+  background-color: var(--blue);
+  border: 1px solid #79CEF4;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.post-photo {
+  flex: 0 0 80px;
+  height: 80px;
+  margin: 10px 10px 0px 10px;
+}
+
+.post-info {
+  flex: 1;
+  display: flex;
+  align-self: center;
+  margin: 10px 10px 00px 10px;
 }

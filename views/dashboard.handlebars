@@ -22,11 +22,25 @@
   <hr>
   <br/>
   <ol>
+    
     {{#each posts as |post|}}
+    
     <li>
       <div class="meta">
+
+        <div class="post-section">
+
+        <div class="post-photo">  
+          <img src="../images/post_icon.jpg" alt="UFO Sighting" title="UFO Sighting">
+        </div>   
+
+        <div class="post-info">
         {{> post-info post}}
-        <a href="/dashboard/edit/{{post.id}}" class="edit-post">Edit Sighting</a>
+        
+        </div>
+        </div>
+
+        <a href="/dashboard/edit/{{post.id}}" class="edit-post">Edit Sighting {{post.id}}</a>
       </div>
     </li>
     <br>

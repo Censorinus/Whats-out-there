@@ -26,6 +26,7 @@
     "mysql2": "^2.1.0",
     "node-csv": "^0.1.2",
     "nodemon": "^2.0.15",
+    "realistic-structured-clone": "^2.0.3",
     "sequelize": "^5.22.5"
   }
 }

@@ -44,11 +44,11 @@ Post.init(
       autoIncrement: true
     },
     sighting: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(2000),
       allowNull: false
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(2000),
       allowNull: false
     },
     location: {

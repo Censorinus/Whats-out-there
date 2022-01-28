@@ -103,11 +103,20 @@ router.post('/', withAuth, (req, res) => {
 
 router.put('/sharedsighting', withAuth, (req, res) => {
   if (req.session) {
-    Post.sharedSighting({ ...req.body, user_id: req.session.user_id }, { SharedSighting, Comment, User })
+    Post.sharedSighting(
+      {
+        ...req.body,
+        user_id: req.session.user_id
+      },
+      {
+        SharedSighting,
+        Comment,
+        User
+      })
       .then(updatedSharedSighting => res.json(updatedSharedSighting))
       .catch(err => {
         console.log(err);
-        res.status(500).json(err);
+        res.status(409).json(err);
       });
   }
 });

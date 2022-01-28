@@ -3,12 +3,16 @@ async function newFormHandler(event) {
 
   const sighting = document.querySelector('textarea[name="post-sighting"]').value;
   const description = document.querySelector('textarea[name="post-description"]').value;
+  const datetime = document.querySelector('input[name="post-datetime"]').value;
+  const location = document.querySelector('input[name="post-location"]').value;
 
   const response = await fetch(`/api/posts`, {
     method: 'POST',
     body: JSON.stringify({
       sighting,
-      description
+      description,
+      datetime,
+      location
     }),
     headers: {
       'Content-Type': 'application/json'

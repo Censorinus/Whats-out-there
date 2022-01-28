@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { User, Post, Comment, SharedSighting } = require('../../models');
-const withAuth = require('../../middleware/auth');
 const fs = require('fs').promises;
 const parse = require('csv-parse/lib/sync');
+const dtl = require('dtl-js');
+const { User, Post, Comment, SharedSighting } = require('../../models');
+const withAuth = require('../../middleware/auth');
 
-// get all users
+
 router.get('/', (req, res) => {
   User.findAll({
     attributes: { exclude: ['password'] }
@@ -58,7 +59,6 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // expects {username: 'Lernantino', password: 'password1234'}
   User.findOne({
     where: {
       username: req.body.username
@@ -89,8 +89,39 @@ router.post('/', (req, res) => {
     })
 });
 
+const bulkLoad = async function (username) {
+  const fileContent = await fs.readFile(__dirname + '/../../public/input/sightings.csv');
+  const records = parse(fileContent, { columns: true });
+
+  let transform = {
+    "out": {
+      "sighting": "(: &( $shape ' - ' $duration ) :)",
+      "datetime": "(: &( $occurrence_date ' @ ' $time ) :)",
+      "location": "(: &( $city ',' $state ) :)",
+      "description": "(: &( $summary ) :)",
+      "user_id": 1
+    }
+  };
+
+  let newSightings = [];
+  for (let i = 0; i < records.length; i++) {
+    let sighting = records[i];
+    let dmy = sighting.occurrence_date.split('/');
+    if (dmy && dmy.length === 3) {
+      let century = dmy[2] > 40 ? '19' : '20';
+      let dateStr = (century + dmy[2].trim()) + '-'
+        + ('0' + dmy[0].trim()).slice(-2) + '-'
+        + ('0' + dmy[1].trim()).slice(-2);
+      sighting.occurrence_date = dateStr;
+    }
+    let newSighting = dtl.apply_transform(sighting, transform);
+    newSightings.push(newSighting);
+  }
+  await Post.bulkCreate(newSightings);
+
+};
+
 router.post('/login', (req, res) => {
-  // expects {username: 'lernantino', password: 'password1234'}
   User.findOne({
     where: {
       username: req.body.username
@@ -101,19 +132,11 @@ router.post('/login', (req, res) => {
         res.status(400).json({ message: 'No user with that username!' });
         return;
       }
-
       const validPassword = dbUserData.checkPassword(req.body.password);
 
       if (!validPassword) {
         res.status(400).json({ message: 'Incorrect password!' });
         return;
-      }
-
-      if (req.body.username === 'anonymous') {
-        const fileContent = await fs.readFile(__dirname + '/input/sightings.csv');
-        const records = parse(fileContent, { columns: true });
-        res.json(records);
-        // move the input file to the archive folder.
       }
 
       req.session.save(() => {
@@ -123,6 +146,10 @@ router.post('/login', (req, res) => {
 
         res.json({ user: dbUserData, message: 'You are now logged in!' });
       });
+
+      if (dbUserData.username === 'anonymous') {
+        await bulkLoad(dbUserData.username);
+      }
     });
 });
 
@@ -137,8 +164,6 @@ router.post('/logout', (req, res) => {
 });
 
 router.put('/:id', withAuth, (req, res) => {
-  // expects {username: 'Lernantino', password: 'password1234'}
-  // pass in req.body instead to only update what's passed through
   User.update(req.body, {
     individualHooks: true,
     where: {

@@ -3,12 +3,20 @@
 
   <form class="new-post-form">
     <div>
-      <label for="post-sighting">Sighting</label>
+      <label for="post-sighting">Sighting (shape and approximate duration)</label>
       <textarea name="post-sighting" id="post-sighting"></textarea>
     </div>
     <div>
-      <label for="post-description">Description</label>
+      <label for="post-description">Detailed Description</label>
       <textarea name="post-description" id="post-description"></textarea>
+    </div>
+    <div>
+      <label for="post-datetime">YYYY-MM-DD @ HH:MM (for sorting)</label>
+      <input name="post-datetime" id="post-datetime"></input>
+    </div>
+    <div>
+      <label for="post-location">City,State</label>
+      <input name="post-location" id="post-datetime"></input>
     </div>
     <button type="submit" class="btn">Create</button>
   </form>
@@ -16,7 +24,7 @@
 {{#if posts.length}}
 <section>
   <h2>Your Sightings</h2>
-  <ol>
+  <ol id="sightings">
     {{#each posts as |post|}}
     <li>
       <div class="meta">

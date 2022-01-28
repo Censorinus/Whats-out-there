@@ -2,14 +2,19 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment, SharedSighting } = require('../models');
 
-// get all blogs for homepage
 router.get('/', (req, res) => {
   console.log('======================');
   Post.findAll({
+    order: [
+      ['datetime', 'DESC'],
+      ['sighting', 'ASC'],
+    ],
     attributes: [
       'id',
       'sighting',
       'description',
+      'datetime',
+      'location',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM sharedSighting WHERE post.id = sharedSighting.post_id)'), 'sharedSighting']
     ],
@@ -41,7 +46,6 @@ router.get('/', (req, res) => {
     });
 });
 
-// get single post
 router.get('/post/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -51,6 +55,8 @@ router.get('/post/:id', (req, res) => {
       'id',
       'sighting',
       'description',
+      'datetime',
+      'location',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM sharedSighting WHERE post.id = sharedSighting.post_id)'), 'sharedSighting']
     ],

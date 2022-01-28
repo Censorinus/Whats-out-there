@@ -5,13 +5,15 @@ async function editFormHandler(event) {
   ];
   const sighting = document.querySelector('textarea[name="post-sighting"]').value;
   const description = document.querySelector('textarea[name="post-description"]').value;
-  console.log("SIGHTING: " + JSON.stringify(sighting));
-  console.log("DESCRIPTION: " + JSON.stringify(description));
+  const datetime = document.querySelector('input[name="post-datetime"]').value;
+  const location = document.querySelector('input[name="post-location"]').value;
   const response = await fetch(`/api/posts/${id}`, {
     method: 'PUT',
     body: JSON.stringify({
       sighting,
-      description
+      description,
+      datetime,
+      location
     }),
     headers: {
       'Content-Type': 'application/json'

@@ -16,10 +16,6 @@ body, html {
   height: 100%;
   padding: 0;
   margin: 0;
-<<<<<<< HEAD
-  font-family: sans-serif;
-  color: #641e16;
-=======
   font-family: Helvetica, Arial, sans-serif;;
   color: var(--white); 
   background-color: var(--darkblue);
@@ -44,7 +40,6 @@ header {
   width: 100%;
   height: 100px;
   
->>>>>>> 98eeefa34c8ad2f353152771a4d7ba9e5dd3e784
 }
 
 .navigation {
@@ -218,10 +213,6 @@ main {
   opacity: .6;
 }
 
-#sightings {
-  list-style-type: none;
-}
-
 .new-post-form input {
   width: 300px;
 }
@@ -269,5 +260,11 @@ footer {
 
 .post-desc {
   color:var(--lighterblue);
+}
+
+.main-title {
+  color: var(--lightblue);
+  font-size: 20px;
+  font-weight: bold;
 }
 

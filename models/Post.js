@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-// create our Post model
+
 class Post extends Model {
   static sharedSighting(body, models) {
     return models.SharedSighting.create({
@@ -15,6 +15,8 @@ class Post extends Model {
           'id',
           'sighting',
           'description',
+          'datetime',
+          'location',
           'created_at',
           [sequelize.literal('(SELECT COUNT(*) FROM sharedSighting WHERE post.id = sharedSighting.post_id)'), 'sharedSighting']
         ],
@@ -33,7 +35,6 @@ class Post extends Model {
   }
 }
 
-// create fields/columns for Post model
 Post.init(
   {
     id: {
@@ -43,10 +44,18 @@ Post.init(
       autoIncrement: true
     },
     sighting: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(2000),
       allowNull: false
     },
     description: {
+      type: DataTypes.STRING(2000),
+      allowNull: false
+    },
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    datetime: {
       type: DataTypes.STRING,
       allowNull: false
     },

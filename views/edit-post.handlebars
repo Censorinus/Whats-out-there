@@ -4,13 +4,29 @@
     Edit Sighting
   </h2>
   <form class="edit-post-form">
-    <div>
+    <!--<div>
       <label for="post-sighting">Sighting</label>
       <textarea name="post-sighting" id="post-sighting">{{post.sighting}}</textarea>
       <br>
       <br>
       <label for="post-description">Description</label>
       <textarea name="post-description" id="post-description">{{post.description}}</textarea>
+    </div>-->
+    <div>
+      <label for="post-sighting">Sighting (shape and approximate duration)</label>
+      <textarea name="post-sighting" id="post-sighting">{{post.sighting}}</textarea>
+    </div>
+    <div>
+      <label for="post-description">Detailed Description</label>
+      <textarea name="post-description" id="post-description">{{post.description}}</textarea>
+    </div>
+    <div>
+      <label for="post-datetime">YYYY-MM-DD @ HH:MM (for sorting)</label>
+      <input name="post-datetime" id="post-datetime" value="{{post.datetime}}">
+    </div>
+    <div>
+      <label for="post-location">City,State</label>
+      <input name="post-location" id="post-datetime" value="{{post.location}}">
     </div>
     <div>
       <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>

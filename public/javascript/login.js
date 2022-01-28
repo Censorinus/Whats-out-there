@@ -1,6 +1,7 @@
+
 async function loginFormHandler(event) {
   event.preventDefault();
-
+  
   const username = document.querySelector('#user-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
 
@@ -17,7 +18,8 @@ async function loginFormHandler(event) {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert(response.statusText);
+      alert(`User/Password does not exist or is mispelled --- HTTP STATUS: ${response.status}/${response.statusText}`);
+      document.location.replace('/login');
     }
   }
 }

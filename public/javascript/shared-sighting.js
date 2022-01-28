@@ -17,7 +17,7 @@ async function sharedSightingClickHandler(event) {
   if (response.ok) {
     document.location.reload();
   } else {
-    alert(response.statusText);
+    alert(`Can only share a sighting ONCE on any given sighting --- HTTP STATUS: ${response.status}/${response.statusText}`);
   }
 }
 

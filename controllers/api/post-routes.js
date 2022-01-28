@@ -3,14 +3,19 @@ const sequelize = require('../../config/connection');
 const { Post, User, Comment, SharedSighting } = require('../../models');
 const withAuth = require('../../middleware/auth');
 
-// get all users
 router.get('/', (req, res) => {
   console.log('======================');
   Post.findAll({
+    order: [
+      ['datetime', 'DESC'],
+      ['sighting', 'ASC'],
+    ],
     attributes: [
       'id',
       'sighting',
       'description',
+      'datetime',
+      'location',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM sharedSighting WHERE post.id = sharedSighting.post_id)'), 'sharedSighting']
     ],
@@ -45,6 +50,8 @@ router.get('/:id', (req, res) => {
       'id',
       'sighting',
       'description',
+      'datetime',
+      'location',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM sharedSighting WHERE post.id = sharedSighting.post_id)'), 'sharedSighting']
     ],
@@ -68,6 +75,7 @@ router.get('/:id', (req, res) => {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
+      console.log("###################POSTING##############" + JSON.stringify(dbPostData));
       res.json(dbPostData);
     })
     .catch(err => {
@@ -77,12 +85,12 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-  // expects {sighting: 'Large black object at mid-day',
-  //          description: 'Saw a large black object at mid-day during a walk in the park', user_id: 1}
   if (req.session) {
     Post.create({
       sighting: req.body.sighting,
       description: req.body.description,
+      datetime: req.body.datetime,
+      location: req.body.location,
       user_id: req.session.user_id
     })
       .then(dbPostData => res.json(dbPostData))
@@ -94,13 +102,21 @@ router.post('/', withAuth, (req, res) => {
 });
 
 router.put('/sharedsighting', withAuth, (req, res) => {
-  // custom static method created in models/Post.js
   if (req.session) {
-    Post.sharedSighting({ ...req.body, user_id: req.session.user_id }, { SharedSighting, Comment, User })
+    Post.sharedSighting(
+      {
+        ...req.body,
+        user_id: req.session.user_id
+      },
+      {
+        SharedSighting,
+        Comment,
+        User
+      })
       .then(updatedSharedSighting => res.json(updatedSharedSighting))
       .catch(err => {
         console.log(err);
-        res.status(500).json(err);
+        res.status(409).json(err);
       });
   }
 });
@@ -109,7 +125,9 @@ router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
       sighting: req.body.sighting,
-      description: req.body.description
+      description: req.body.description,
+      datetime: req.body.datetime,
+      location: req.body.location
     },
     {
       where: {

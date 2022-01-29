@@ -1,13 +1,24 @@
+
+<div class="post-section">
+
+<div class="post-photo">  
+    <img src="../images/post_icon.jpg" alt="UFO Sighting" title="UFO Sighting">
+</div>  
+
+<div class="post-info">
 {{> post-info post}}
+</div>
+
+</div>
 
 {{#if loggedIn}}
 <form class="comment-form">
   <div>
-    <textarea name="comment-body"></textarea>
+    <textarea name="comment-body" placeholder="Enter Comment"></textarea>
   </div>
 
   <div>
-    <button type="submit">add comment</button>
+    <button type="submit">Add Comment</button>
     <button type="button" class="shared-sighting-btn">Shared Sighting</button>
   </div>
 </form>

@@ -1,3 +1,13 @@
+/* Variable Styles */
+:root {
+  --white: #ffffff;
+  --darkblue: #1e2d3f;
+  --blue: #324c6b;
+  --lightblue: #7fa9da;
+  --lighterblue: #bae3f5;
+  
+}
+
 * {
   box-sizing: border-box;
 }
@@ -6,19 +16,55 @@ body, html {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
-  color: #641e16;
+  font-family: Helvetica, Arial, sans-serif;;
+  color: var(--white); 
+  background-color: var(--darkblue);
 }
+
+header {
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1%;
+  background-image: url("../images/ufo.jpg");
+  background-size: cover;
+  height: 200px;
+  
+}
+
+.logo {
+  font-size: 45px;
+  color: var(--white);
+  text-align: center;
+  width: 100%;
+  height: 100px;
+  
+}
+
+.navigation {
+  font-size: 16px;
+  color: var(--white);
+  text-align: center;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 35px;
+  
+}
+
 
 a {
   text-decoration: none;
-  color: #225ca3;
+  color: var(--white);
   font-weight: bold;
   transition: color .1s;
 }
 
 a:hover {
-  color: #3486eb;
+  color: var(--white);
 }
 
 button {
@@ -50,6 +96,7 @@ textarea, input {
 
 textarea:focus, input:focus {
   outline: none;
+  /* Add color to inside of box  */
   border: 1px solid #3486eb;
 }
 
@@ -75,13 +122,7 @@ form label {
   flex-direction: column;
 }
 
-header {
-  border-bottom: 1px solid #ccc;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1%;
-}
+
 
 header h1 {
   font-size: 1em;
@@ -136,7 +177,7 @@ main {
 #signature {
   font-style: italic;
   font-size: 90%;
-  color: #7d7d7d;
+  color: var(--lighterblue);
 }
 
 .edit-link {
@@ -172,10 +213,6 @@ main {
   opacity: .6;
 }
 
-#sightings {
-  list-style-type: none;
-}
-
 .new-post-form input {
   width: 300px;
 }
@@ -190,4 +227,53 @@ footer {
   justify-content: center;
   padding: 1%;
   font-size: 110%;
+}
+
+.post-section {
+  
+  background-color: var(--blue);
+  color: var(--lightblue);
+  border: 3px solid #79CEF4;
+  border-radius: 25px;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.post-photo {
+  flex: 0 0 80px;
+  height: 80px;
+  margin: 10px 10px 0px 10px;
+}
+
+.post-info {
+  flex: 1;
+  display: flex;
+  align-self: center;
+  margin: 10px 10px 00px 10px;
+}
+
+.post-username {
+  color:var(--lighterblue);
+}
+
+.post-desc {
+  color:var(--lighterblue);
+}
+
+.main-title {
+  color: var(--lightblue);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.sub-title {
+  color: var(--lighterblue);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+textarea:focus {
+  background-color: var(--lighterblue);
 }

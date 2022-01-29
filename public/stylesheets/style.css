@@ -170,6 +170,10 @@ main {
   color: #7d7d7d;
 }*/
 
+#sightings {
+  list-style-type: none;
+}
+
 .post .sighting span {
   font-style: italic;
 }
@@ -204,7 +208,7 @@ main {
 }
 
 .comment:nth-child(odd) {
-  background-color: #fff5eb;
+  background-color: #324c6b;
 }
 
 .comment .meta {
@@ -275,5 +279,9 @@ footer {
 }
 
 textarea:focus {
+  background-color: var(--lighterblue);
+}
+
+input:focus {
   background-color: var(--lighterblue);
 }

@@ -274,3 +274,6 @@ footer {
   font-weight: bold;
 }
 
+textarea:focus {
+  background-color: var(--lighterblue);
+}

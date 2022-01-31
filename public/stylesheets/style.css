@@ -1,10 +1,19 @@
 /* Variable Styles */
 :root {
   --white: #ffffff;
+  --offwhite: #fff5eb;
   --darkblue: #1e2d3f;
   --blue: #324c6b;
+  --mediumblue: #225ca3;
+  --lightmediumblue: #3486eb;
+  --skyblue: #79CEF4;
   --lightblue: #7fa9da;
   --lighterblue: #bae3f5;
+  --lightbrown: #ccc;
+  --red: #d41414;
+  --lightred: #ff643d;
+  --green: #197d0f;
+  --lightgreen: #1f9c13;
   
 }
 
@@ -33,6 +42,10 @@ header {
   
 }
 
+header h1 {
+  font-size: 1em;
+}
+
 .logo {
   font-size: 45px;
   color: var(--white);
@@ -50,7 +63,7 @@ header {
   height: 20px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--lightbrown);
   margin-bottom: 35px;
   
 }
@@ -68,10 +81,10 @@ a:hover {
 }
 
 button {
-  background-color: #225ca3;
+  background-color: var(--mediumblue);
   border: 0;
   padding: 1%;
-  color: white;
+  color: var(--white);
   font-weight: bold;
   transition: background-color .1s;
   cursor: pointer;
@@ -79,7 +92,12 @@ button {
 }
 
 button:hover {
-  background-color: #3486eb;
+  background-color: var(--lightmediumblue);
+}
+
+main {
+  flex: 1;
+  padding: 2% 4%;
 }
 
 .post-list {
@@ -91,13 +109,12 @@ button:hover {
 textarea, input {
   padding: .5%;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--lightbrown);
 }
 
 textarea:focus, input:focus {
   outline: none;
-  /* Add color to inside of box  */
-  border: 1px solid #3486eb;
+  border: 1px solid var(--lightmediumblue);
 }
 
 textarea {
@@ -122,24 +139,13 @@ form label {
   flex-direction: column;
 }
 
-
-
-header h1 {
-  font-size: 1em;
-}
-
-main {
-  flex: 1;
-  padding: 2% 4%;
-}
-
 .btn-no-style {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: #225ca3;
+  color: var(--mediumblue);
   font-size: 100%;
   font-weight: bold;
   transition: color .1s;
@@ -148,27 +154,21 @@ main {
 
 .btn-no-style:hover {
   background: none;
-  color: #3486eb;
+  color: var(--lightmediumblue);
 }
 
 .delete-post-btn {
-  background-color: #d41414;
+  background-color: var(--red);
 }
 
 .delete-post-btn:hover {
-  background-color: #ff643d;
+  background-color: var(--lightred);
 }
 
 .post {
   margin-bottom: 2%;
   line-height: 150%;
 }
-
-/*.post .sighting span {
-  font-style: italic;
-  font-size: 90%;
-  color: #7d7d7d;
-}*/
 
 .post .sighting span {
   font-style: italic;
@@ -186,12 +186,12 @@ main {
 }
 
 .shared-sighting-btn {
-  background-color: #197d0f;
+  background-color: var(--green);
   transition: background-color .1s;
 }
 
 .shared-sighting-btn:hover {
-  background-color: #1f9c13;
+  background-color: var(--lightgreen);
 }
 
 .comment-form {
@@ -204,7 +204,7 @@ main {
 }
 
 .comment:nth-child(odd) {
-  background-color: #fff5eb;
+  background-color: var(--offwhite);
 }
 
 .comment .meta {
@@ -222,7 +222,7 @@ main {
 }
 
 footer {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid var(--lightbrown);
   display: flex;
   justify-content: center;
   padding: 1%;
@@ -233,7 +233,7 @@ footer {
   
   background-color: var(--blue);
   color: var(--lightblue);
-  border: 3px solid #79CEF4;
+  border: 3px solid var(--skyblue);
   border-radius: 25px;
   display: flex;
   align-content: center;

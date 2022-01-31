@@ -1,7 +1,7 @@
 <section>
   <h2 class="main-title">Post a New Sighting</h2>
   <hr>
-  <br/>
+  <br />
   <form class="new-post-form">
     <div>
       <label for="post-sighting" class="sub-title">Sighting</label>
@@ -11,36 +11,44 @@
       <label for="post-description" class="sub-title">Description</label>
       <textarea name="post-description" id="post-description" placeholder="Enter Sighting Details"></textarea>
     </div>
+    <div>
+      <label for="post-datetime" class="sub-title">Date and Time</label>
+      <input name="post-datetime" id="post-datetime" placeholder="YYYY-MM-DD @ HH:MM (for sorting)"></input>
+    </div>
+    <div>
+      <label for="post-location" class="sub-title">Location</label>
+      <input name="post-location" id="post-datetime" placeholder="City,State"></input>
+    </div>
     <button type="submit" class="btn">Create Sighting</button>
   </form>
 </section>
 {{#if posts.length}}
 <section>
-  <br/>
+  <br />
   <hr>
   <h2 class="main-title">Your Sightings</h2>
   <hr>
-  <br/>
-  <ol>
-    
+  <br />
+  <ol id="sightings">
+
     {{#each posts as |post|}}
-    
+
     <li>
       <div class="meta">
 
         <div class="post-section">
 
-        <div class="post-photo">  
-          <img src="../images/post_icon.jpg" alt="UFO Sighting" title="UFO Sighting">
-        </div>   
+          <div class="post-photo">
+            <img src="../images/post_icon.jpg" alt="UFO Sighting" title="UFO Sighting">
+          </div>
 
-        <div class="post-info">
-        {{> post-info post}}
-        
-        </div>
+          <div class="post-info">
+            {{> post-info post}}
+
+          </div>
         </div>
 
-        <a href="/dashboard/edit/{{post.id}}" class="edit-post">Edit Sighting</a>
+        <a href="/dashboard/edit/{{post.id}}" class="edit-post">Edit Sighting {{post.id}}</a>
       </div>
     </li>
     <br>

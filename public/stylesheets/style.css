@@ -14,7 +14,7 @@
   --lightred: #ff643d;
   --green: #197d0f;
   --lightgreen: #1f9c13;
-  
+  --darkslategrey: #2F4F4F;
 }
 
 * {
@@ -207,7 +207,7 @@ form label {
 }
 
 .comment:nth-child(odd) {
-  background-color: var(--offwhite);
+  background-color: var(--darkslategrey);
 }
 
 .comment .meta {

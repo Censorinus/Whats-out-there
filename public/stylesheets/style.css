@@ -207,7 +207,7 @@ form label {
 }
 
 .comment:nth-child(odd) {
-  background-color: var(--darkslategrey);
+  background-color: var(--blue);
 }
 
 .comment .meta {

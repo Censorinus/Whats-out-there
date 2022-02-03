@@ -38,24 +38,28 @@
 
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a href="/" class="navbar-item">
+          <div class="navbar-item">
+          <a href="/" class="navbar-item button is-link">
             Home
           </a>
-          <a href="/dashboard" class="navbar-item">
+          </div class="navbar-item">
+          <div class="navbar-item">
+          <a href="/dashboard" class="navbar-item button is-link">
             Dashboard
           </a>
+          </div>
         </div>
 
         <div class="navbar-end">
-          <!--<div class="navbar-item">-->
+          <div class="navbar-item">
             {{#if loggedIn}}
             <a class="navbar-item button is-warning" id="logout"><strong>Logout</strong></a>
             {{else}}
-            <a href="/login" class="navbar-item">
+            <a href="/login" class="navbar-item button is-link">
               Login
             </a>
             {{/if}}
-          <!--</div>-->
+          </div>
         </div>
       </div>
     </nav>

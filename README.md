@@ -104,7 +104,7 @@ This application is powered by NodeJS and a useful array of node package modules
     ORM
     sequelize -------------------- Object Relational Mapping (to MySQL)
   
-    COOKIES
+    COOKIE MANAGEMENT
     connect-session-sequelize ---- cookie/session management
     express-session --------------            "
   

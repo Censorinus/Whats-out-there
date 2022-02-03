@@ -28,7 +28,8 @@
     <!-- Navigation Start -->
     <nav class="navbar is-link" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <a role="button" class="navbar-burger burger" id="burger" aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample" onclick="toggleBurger()">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -48,9 +49,9 @@
       <div class="navbar-end">
           <div class="navbar-item">
           {{#if loggedIn}}
-            <a class="button is-warning" id="logout"><strong>Logout</strong></a>
+            <a class="navbar-item button is-warning" id="logout"><strong>Logout</strong></a>
             {{else}}
-            <a href="/login">
+            <a href="/login" class="navbar-item">
             Login
             </a>
             {{/if}} 
@@ -74,6 +75,7 @@
 
   </div>
   <!-- Wrapper End -->
+  <script src="/javascript/burgerMenu.js"></script>
 
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>

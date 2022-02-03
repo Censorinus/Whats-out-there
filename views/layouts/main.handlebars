@@ -19,7 +19,7 @@
     <header>
       <!-- Logo Start -->
       <div class="logo">
-          <img src="../images/header-logo.png" alt="What's Out There?" title="What's Out There?">
+        <img src="../images/header-logo.png" alt="What's Out There?" title="What's Out There?">
       </div>
       <!-- Logo End -->
     </header>
@@ -28,7 +28,7 @@
     <!-- Navigation Start -->
     <nav class="navbar is-link" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a role="button" class="navbar-burger" id="burger" aria-label="menu" aria-expanded="false"
+        <a role="button" class="navbar-burger burger" id="burger" aria-label="menu" aria-expanded="false"
           data-target="navbarBasicExample" onclick="toggleBurger()">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -38,29 +38,33 @@
 
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a href="/" class="navbar-item">
+          <div class="navbar-item">
+          <a href="/" class="navbar-item button is-link">
             Home
           </a>
-          <a href="/dashboard" class="navbar-item">
+          </div class="navbar-item">
+          <div class="navbar-item">
+          <a href="/dashboard" class="navbar-item button is-link">
             Dashboard
           </a>
-      </div>
+          </div>
+        </div>
 
-      <div class="navbar-end">
+        <div class="navbar-end">
           <div class="navbar-item">
-          {{#if loggedIn}}
+            {{#if loggedIn}}
             <a class="navbar-item button is-warning" id="logout"><strong>Logout</strong></a>
             {{else}}
-            <a href="/login" class="navbar-item">
-            Login
+            <a href="/login" class="navbar-item button is-link">
+              Login
             </a>
-            {{/if}} 
+            {{/if}}
           </div>
         </div>
       </div>
     </nav>
     <!-- Navigation End -->
-    
+
     <!-- Main Start -->
     <main>
       {{{ body }}}
@@ -69,14 +73,14 @@
 
     <!-- Footer Start -->
     <footer>
-      <img src="../images/footer-image.png" alt="Stay on Watch - Eyes to the Sky!" title="Stay on Watch - Eyes to the Sky!">
+      <img src="../images/footer-image.png" alt="Stay on Watch - Eyes to the Sky!"
+        title="Stay on Watch - Eyes to the Sky!">
     </footer>
     <!-- Footer End -->
 
   </div>
   <!-- Wrapper End -->
   <script src="/javascript/burgerMenu.js"></script>
-
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}

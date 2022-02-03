@@ -4,7 +4,7 @@
 
 A UFO Sighting Blog that allows users to view and research sightings, vote for sightings, and make comments.
 
-![screenshot](./images/screenshot.png)
+![screenshot](./public/images/screenshot.png)
 
 ## Table Of Contents
 

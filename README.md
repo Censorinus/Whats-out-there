@@ -16,6 +16,7 @@ A Blog that allows users to post, view, share, and make comments about UFO sight
   - [Usage for local Installation](#usage-for-local-installation)
   - [About NUFORC Data](#about-nuforc-data)
   - [How To Bulk Load NUFORC Data](#how-to-bulk-load-nuforc-data)
+  - [Technology Stack](#technology-stack)
   - [Questions](#questions)
 
 ## Local Installation (only if executing on local server/pc)
@@ -73,19 +74,51 @@ This data, in it's downloaded format (CSV), can be loaded directly into the data
 
 ## How To Bulk Load NUFORC Data
 
-From within the locally cloned directory, retrieve the downloaded NUFORC CSV file (ufo_data_nuforc.csv).  It is strongly recommended that this data first be reduced significantly as described in 
+From within the locally cloned directory, retrieve the downloaded NUFORC CSV file (ufo_data_nuforc.csv).  *It is strongly recommended that this data first be reduced significantly as described in* 
 [About NUFORC Data](#about-nuforc-data).  Then rename the data sub-set to sightings.csv.
 That file name (sightings.csv) is the only name the bulk load process will recognize to use.
   
 From the root directory, copy the sighting.csv file into the ./public/input directory.  Then log into the application from your web browser as the "anonymous" user.  If there is no anonymous user you'll have to create one.  After creating an anonymous user, logout and login again as the anonymous user.  This must be done because it is the login process that triggers the load of the sightings.csv file.  Upon completion of the process of logging in as the anonymous user, the sightings.csv file will be loaded.  Return to the home page and view your newly created data.
   
-NOTE: The bulk-load process can be done with any data, however, the input file must be named "sightings.csv" and the format must be CSV with the following fields defined in the header record...
+NOTE: The bulk-load process can be done with any data, however, the input file must be named "sightings.csv" and the format must be CSV with the following fields in the data and defined in the header record...
   
 posted_date,occurrence_date,time,city,state,shape,duration,summary
     
-The "posted_data" and "occurrence_date" must be in the format MM/DD/YY.  That's all the ETL process has been set up to handle.
+The "posted_date" and "occurrence_date" must be in the format MM/DD/YY.  That's all the ETL process has been set up to handle. ETL will transform the dates into a sortable YYYY-MM-DD format.  This will enable the latest sightings to sort to the
+top of the sighting list on the home page.
   
-ALSO NOTE: Presently there is no ETL rule set up to eliminate duplicates from being loaded into the database.  That is to be a future (but soon) enhancement.
+ALSO NOTE: Presently there is no ETL rule(s) setup to eliminate duplicates from being loaded into the database.  That is to be a future (but soon) enhancement.
+
+## Technology Stack
+
+This application is powered by NodeJS and a useful array of node package modules listed in the following:
+  
+    STYLING
+    bulma ------------------------ styling
+    handlebars ------------------- HTML Structure and Templating
+  
+    NODE SERVER
+    express ---------------------- server APIs
+    express-handlebars ----------- handlebars support
+  
+    ORM
+    sequelize -------------------- Object Relational Mapping (to MySQL)
+  
+    COOKIES
+    connect-session-sequelize ---- cookie/session management
+    express-session --------------            "
+  
+    DATA PERSISTENCE
+    mysql2 ----------------------- MySQL support
+  
+    SECURITY
+    bcrypt ----------------------- encryption for securing passwords
+    dotenv ----------------------- manage environment variables
+  
+    node-csv --------------------- working with CSV (Comma Separated Values) files
+    realistic-structured-clone --- for archiving deep copies of our injested data objects
+    dtl-js ----------------------- ETL (Extract Transform Load)  external data
+    nodemon ---------------------- for automated RESTARTs of the node server as code changes
 
 ## Questions
 

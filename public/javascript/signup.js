@@ -22,7 +22,7 @@ async function signupFormHandler(event) {
       } else {
         alert(response.statusText);
       }
-      document.location.replace('/login');
+      document.location.replace('/dashboard');
     }
   }
 }

@@ -16,7 +16,7 @@ async function loginFormHandler(event) {
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/');
     } else {
       alert(`User/Password does not exist or is mispelled --- HTTP STATUS: ${response.status}/${response.statusText}`);
       document.location.replace('/login');

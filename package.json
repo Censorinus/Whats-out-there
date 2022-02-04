@@ -1,5 +1,5 @@
 {
-  "name": "hacker-news-clone",
+  "name": "whats-out-there",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -16,7 +16,7 @@
     "seed": "node seeds/index.js"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^4.0.1",
     "bulma": "^0.9.3",

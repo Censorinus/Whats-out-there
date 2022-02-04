@@ -154,7 +154,7 @@ application to be a serious contributor:
 5. Trigger verification email to users every time a sighting is posted or updated.
 6. Handle multiple data formats from vetted data suppliers.
 7. Provide sighting data extracts to external users.
-8. (6) and (7) should be used to stimulate collaborative efforts for displaying and analizing UFO sighting data.
+8. (6) and (7) should be used to stimulate collaborative efforts for displaying and analyzing UFO sighting data.
 
 ## Questions
 

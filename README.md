@@ -137,9 +137,12 @@ This application is powered by NodeJS and a useful array of node package modules
     bcrypt ----------------------- encryption for securing passwords
     dotenv ----------------------- manage environment variables
   
+    PROCESS EXTERNAL DATA   
     node-csv --------------------- working with CSV (Comma Separated Values) files
     realistic-structured-clone --- for archiving deep copies of our injested data objects
     dtl-js ----------------------- ETL (Extract Transform Load)  external data
+  
+    SPEED UP DEVELOPMENT
     nodemon ---------------------- for automated RESTARTs of the node server as code changes
 
 ## Future enhancements

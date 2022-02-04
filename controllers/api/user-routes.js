@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
     });
 });
 
+
 router.get('/:id', (req, res) => {
   User.findOne({
     attributes: { exclude: ['password'] },
@@ -60,6 +61,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+
 router.post('/', (req, res) => {
   User.findOne({
     where: {
@@ -91,6 +93,13 @@ router.post('/', (req, res) => {
     })
 });
 
+
+/**
+ * bulkLoad() moves external data into the Post table.  Presently,
+ *    this only occurs when the 'anonymous' user logs in.
+ * @param {Integer} user_id 
+ * @returns nothing...
+ */
 const bulkLoad = async function (user_id) {
   let records = [];
   await fs.readFile(__dirname + '/../../public/input/sightings.csv')
@@ -171,8 +180,8 @@ const bulkLoad = async function (user_id) {
       console.log(err);
     });
   });
-
 };
+
 
 router.post('/login', (req, res) => {
   User.findOne({
@@ -206,6 +215,7 @@ router.post('/login', (req, res) => {
     });
 });
 
+
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
@@ -215,6 +225,7 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
 
 router.put('/:id', withAuth, (req, res) => {
   User.update(req.body, {
@@ -236,6 +247,7 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
+
 router.delete('/:id', withAuth, (req, res) => {
   User.destroy({
     where: {
@@ -254,5 +266,6 @@ router.delete('/:id', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
 
 module.exports = router;

@@ -4,6 +4,7 @@ const User = require('./User');
 const SharedSighting = require('./SharedSighting');
 const Comment = require('./Comment');
 
+
 // create associations
 User.hasMany(Post, {
   foreignKey: 'user_id'
@@ -64,5 +65,6 @@ User.hasMany(Comment, {
 Post.hasMany(Comment, {
   foreignKey: 'post_id'
 });
+
 
 module.exports = { User, Post, SharedSighting, Comment };

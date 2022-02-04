@@ -158,7 +158,16 @@ application to be a serious contributor:
 
 ## Questions
 
-Any questions, please contact Mark Dale.
-
-Email address is: msdaledad@gmail.com
+Any questions, please contact one of us...
+  
+Brian Done
+Email: briguy2078@gmail.com
+GitHub profile is https://github.com/bdoneq7
+  
+Mark Dale
+Email: msdaledad@gmail.com
 GitHub profile is https://github.com/msdale
+  
+Joshua Grant
+Email: jgrant.2901@gmail.com
+GitHub profile is https://github.com/Censorinus

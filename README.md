@@ -172,3 +172,7 @@ Joshua Grant
 Email: jgrant.2901@gmail.com  
 GitHub profile is https://github.com/Censorinus  
   
+Jonathan Moser  
+Email: jonathancmoser@gmail.com  
+GitHub profile is https://github.com/jcmoser5  
+  

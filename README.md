@@ -17,6 +17,7 @@ A Blog that allows users to post, view, share, and make comments about UFO sight
   - [About NUFORC Data](#about-nuforc-data)
   - [How To Bulk Load NUFORC Data](#how-to-bulk-load-nuforc-data)
   - [Technology Stack](#technology-stack)
+  - [Future enhancements](#future-enhancements)
   - [Questions](#questions)
 
 ## Local Installation (only if executing on local server/pc)
@@ -78,7 +79,7 @@ From within the locally cloned directory, retrieve the downloaded NUFORC CSV fil
 [About NUFORC Data](#about-nuforc-data).  Then rename the data sub-set to sightings.csv.
 That file name (sightings.csv) is the only name the bulk load process will recognize to use.
   
-From the root directory, copy the sighting.csv file into the ./public/input directory.  Then log into the application from your web browser as the "anonymous" user.  If there is no anonymous user you'll have to create one.  After creating an anonymous user, logout and login again as the anonymous user.  This must be done because it is the login process that triggers the load of the sightings.csv file.  Upon completion of the process of logging in as the anonymous user, the sightings.csv file will be loaded.  Return to the home page and view your newly created data.
+From the root directory, copy the sighting.csv file into the ./public/input directory.  Then log into the application from your web browser as the "anonymous" user.  If there is no anonymous user you'll have to signup as the anonymous user.  After creating an anonymous user, logout and login again as the anonymous user.  *This must be done* because it is the login process that triggers the load of the sightings.csv file, not the signup.  Upon completion of the process of logging in as the anonymous user, the sightings.csv file will be loaded.  Return to the home page and view your newly created data.
   
 NOTE: The bulk-load process can be done with any data, however, the input file must be named "sightings.csv" and the format must be CSV with the following fields in the data and defined in the header record...
   
@@ -120,9 +121,23 @@ This application is powered by NodeJS and a useful array of node package modules
     dtl-js ----------------------- ETL (Extract Transform Load)  external data
     nodemon ---------------------- for automated RESTARTs of the node server as code changes
 
+## Future enhancements
+
+The details haven't been all worked out yet, but here's a list of critical enhancements that must be added for this
+application to be a serious contributor:
+
+1. Flexible sorting functionality starting with location and number of shared sightings.
+2. Limits on the number of sightings listed on the home page.
+3. Ability for sightings to be associated with images provided by users.
+4. Have an Admin Page for data review and cleansing, bulk data loads, and User management.
+5. Trigger verification email to users every time a sighting is posted or updated.
+6. Handle multiple data formats from vetted data suppliers.
+7. Provide sighting data extracts to external users.
+8. (6) and (7) should be used to form collaborative efforts for displaying and analizing UFO sighting data.
+
 ## Questions
 
 Any questions, please contact Mark Dale.
 
-My email address is: msdaledad@gmail.com
-My github profile is https://github.com/msdale
+Email address is: msdaledad@gmail.com
+GitHub profile is https://github.com/msdale

@@ -36,14 +36,17 @@ mysql> source db/schema.sql
 
 THIS SQL SCRIPT SHOULD ONLY BE RUN ONCE TO INITIALIZE THE MYSQL DATABASE/SCHEMA AS A FIRST-TIME SETUP.
   
-LAST AND IMPORTANT...
+LAST AND **IMPORTANT**...
   
 In the root directory of the clone you must manually create a .env file.  It's not part of the repository for security purposes.  This file must consist of the following text:
   
 DB_NAME=sightings_db  
 DB_USER=your_mysql_user_name  
 DB_PASSWORD=your_password  
-
+  
+Now you are ready to run the application locally.
+  
+  
 ## Usage for deployed Installation
 
 To execute the application using the Heroku deployed application, click the following link:

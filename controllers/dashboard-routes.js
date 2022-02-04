@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment, SharedSighting } = require('../models');
 const withAuth = require('../middleware/auth');
 
+
 router.get('/', withAuth, (req, res) => {
   Post.findAll({
     where: {
@@ -45,6 +46,7 @@ router.get('/', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
 
 router.get('/edit/:id', withAuth, (req, res) => {
   Post.findOne({
@@ -93,5 +95,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
 
 module.exports = router;

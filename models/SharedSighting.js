@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+
 class SharedSighting extends Model {}
 
 SharedSighting.init(
@@ -33,5 +34,6 @@ SharedSighting.init(
     modelName: 'sharedSighting'
   }
 );
+
 
 module.exports = SharedSighting;

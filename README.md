@@ -14,6 +14,7 @@ A Blog that allows users to post, view, share, and make comments about UFO sight
   - [Local Installation (only if executing on local server/pc)](#local-installation-only-if-executing-on-local-serverpc)
   - [Usage for deployed Installation](#usage-for-deployed-installation)
   - [Usage for local Installation](#usage-for-local-installation)
+  - [Operating The Web Application](#operating-the-web-application)
   - [About NUFORC Data](#about-nuforc-data)
   - [How To Bulk Load NUFORC Data](#how-to-bulk-load-nuforc-data)
   - [Technology Stack](#technology-stack)
@@ -57,6 +58,13 @@ The application interface will be available in your browser as:
 http://localhost:3001
 
 The application must remain running in the terminal until your done with it, at which time you can terminate it with a CTRL-C keystroke.
+
+## Operating The Web Application
+
+View the Demo...
+  
+  
+https://user-images.githubusercontent.com/90280725/152453238-163b5ef3-327c-423e-9cdd-5dd09e8fcab8.mp4
 
 ## About NUFORC Data
 

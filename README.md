@@ -35,6 +35,14 @@ Additionally you must execute the a database initialization script.  Attach to t
 mysql> source db/schema.sql
 
 THIS SQL SCRIPT SHOULD ONLY BE RUN ONCE TO INITIALIZE THE MYSQL DATABASE/SCHEMA AS A FIRST-TIME SETUP.
+  
+LAST AND IMPORTANT...
+  
+In the root directory of the clone you must manually create a .env file.  It's not part of the repository for security purposes.  This file must consist of the following text:
+  
+DB_NAME=sightings_db
+DB_USER=<the_mysql_user_name>
+DB_PASSWORD=<password>
 
 ## Usage for deployed Installation
 
